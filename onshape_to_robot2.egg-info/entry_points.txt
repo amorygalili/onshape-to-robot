@@ -1,0 +1,6 @@
+[console_scripts]
+onshape-to-robot-bullet = onshape_to_robot:bullet.main
+onshape-to-robot-clear-cache = onshape_to_robot:clear_cache.main
+onshape-to-robot-edit-shape = onshape_to_robot:edit_shape.main
+onshape-to-robot-pure-sketch = onshape_to_robot:pure_sketch.main
+onshape-to-robot3 = onshape_to_robot2:onshape_to_robot.main

@@ -76,10 +76,12 @@ def main():
         print(Fore.GREEN + symbol+' Adding part ' +
             occurrence['instance']['name']+extra + Style.RESET_ALL)
 
+        print("HELLOOOOO!!!!")
         if partIsIgnore(justPart):
             stlFile = None
         else:
-            stlFile = prefix.replace('/', '_')+'.stl'
+            stlFile = prefix.replace('/', '_').replace('"', '') +'.stl'
+            print("stlFile:" + stlFile)
             # shorten the configuration to a maximum number of chars to prevent errors. Necessary for standard parts like screws
             if len(part['configuration']) > 40:
                 shortend_configuration = hashlib.md5(
@@ -90,8 +92,7 @@ def main():
                                         part['partId'], shortend_configuration)
             with open(config['outputDirectory']+'/'+stlFile, 'wb') as stream:
                 stream.write(stl)
-
-            stlMetadata = prefix.replace('/', '_')+'.part'
+            stlMetadata = prefix.replace('/', '_').replace('"', '')+'.part'
             with open(config['outputDirectory']+'/'+stlMetadata, 'w', encoding="utf-8") as stream:
                 json.dump(part, stream, indent=4, sort_keys=True)
 
